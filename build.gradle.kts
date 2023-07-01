@@ -17,9 +17,24 @@ dependencies {
 
 tasks.test {
     useJUnitPlatform()
+    testLogging { events("passed", "skipped", "failed") }
 }
 
+tasks.named<JavaExec>("run") {
+    standardInput = System.`in`
+}
 
 application {
     mainClass.set("MainKt")
+}
+
+tasks.withType<Jar> {
+    manifest {
+        attributes["Main-Class"] = "MainKt"
+    }
+    archiveFileName.set("gameoflife.jar")
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+    from({
+        configurations.runtimeClasspath.get().filter { it.name.endsWith("jar") }.map { zipTree(it) }
+    })
 }
