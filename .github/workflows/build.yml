@@ -31,7 +31,7 @@ jobs:
 
     - name: Code style
       run: |
-        ./gradlew klintCheck
+        ./gradlew ktlintCheck
 
     - name: Build and test
       run: |
