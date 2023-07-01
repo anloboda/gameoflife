@@ -46,9 +46,9 @@ private fun printMenu() {
 
 private fun GameOfLife.print() {
     val cells = this.getCells()
-    cells.indices.forEach { i ->
-        cells[i].indices.forEach { j ->
-            print(if (cells[i][j].isAlive()) "|*" else "| ")
+    cells.indices.forEach { rowIndex ->
+        cells[rowIndex].indices.forEach { columnIndex ->
+            print(if (cells[rowIndex][columnIndex].isAlive()) "|*" else "| ")
         }
         print("|")
         println()

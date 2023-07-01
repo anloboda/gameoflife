@@ -22,7 +22,7 @@ The rules continue to be applied repeatedly to create further generations.
 
 ### Run
 
-To build jar and run tests
+To run linter, build jar and run tests
 ```
 ./gradlew build
 ``` 
