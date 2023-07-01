@@ -31,7 +31,7 @@ class GameOfLife(
 
     fun getCells() = grid.getCells()
 
-    fun reset() {
+    fun reset(pattern: GamePattern) {
         grid = Grid(size, pattern)
     }
 }

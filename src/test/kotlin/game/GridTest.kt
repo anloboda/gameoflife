@@ -1,12 +1,12 @@
 package game
 
-import game.GamePattern.GLIDER
+import game.GamePattern.GILDER
 import org.amshove.kluent.`should be equal to`
 import org.junit.jupiter.api.Test
 
 class GridTest {
 
-    private val grid = Grid(5, GLIDER)
+    private val grid = Grid(5, GILDER)
 
     @Test
     fun `getNeighbors() should return 8 neighbors when cell is in the center`() {

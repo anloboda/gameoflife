@@ -1,6 +1,6 @@
 package game
 
-import game.GamePattern.GLIDER
+import game.GamePattern.GILDER
 import org.amshove.kluent.`should be`
 import org.junit.jupiter.api.Test
 
@@ -9,7 +9,7 @@ class GameOfLifeTest {
     @Test
     fun `should return next generation of the game`() {
         // given
-        val game = GameOfLife(5, GLIDER)
+        val game = GameOfLife(5, GILDER)
         val expectedFirstGeneration = arrayOf(
             arrayOf(DeadCell, DeadCell, DeadCell, DeadCell, DeadCell),
             arrayOf(DeadCell, DeadCell, DeadCell, DeadCell, DeadCell),
@@ -29,13 +29,13 @@ class GameOfLifeTest {
     @Test
     fun `should reset the game to the initial state`() {
         // given
-        val game = GameOfLife(5, GLIDER)
+        val game = GameOfLife(5, GILDER)
         val initGliderCells = game.getCells()
 
         // when
         repeat(3) { game.nextGeneration() }
         val sellsAfterThreeTransitions = game.getCells()
-        game.reset()
+        game.reset(GILDER)
         val sellsAfterReset = game.getCells()
 
         // then

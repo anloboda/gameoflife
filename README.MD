@@ -37,3 +37,15 @@ Another option to run the game
 ```
 java -jar build/libs/gameoflife.jar`
 ```
+
+### Linter
+To check the codestyle
+```
+./gradlew ktlintCheck
+```
+
+To fix codestyle errors
+
+```
+./gradlew ktlintFormat
+```
