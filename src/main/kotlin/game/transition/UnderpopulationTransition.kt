@@ -1,4 +1,4 @@
-package game.rule
+package game.transition
 
 import game.Cell
 import game.DeadCell
@@ -6,7 +6,7 @@ import game.isAlive
 
 private const val UNDERPOPULATION_NEIGHBORS_COUNT = 2
 
-class UnderpopulationRule : Rule {
+class UnderpopulationTransition : Transition {
     override val nextState = DeadCell
 
     override fun isApplicable(cell: Cell, neighbors: List<Cell>) =

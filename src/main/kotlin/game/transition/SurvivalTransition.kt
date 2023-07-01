@@ -1,4 +1,4 @@
-package game.rule
+package game.transition
 
 import game.Cell
 import game.LiveCell
@@ -6,7 +6,7 @@ import game.isAlive
 
 private val survivalNeighborsRange = 2..3
 
-class SurvivalRule : Rule {
+class SurvivalTransition : Transition {
     override val nextState = LiveCell
 
     override fun isApplicable(cell: Cell, neighbors: List<Cell>) =

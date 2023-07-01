@@ -1,32 +1,31 @@
 package game
 
-import game.rule.*
+import game.transition.*
 
 class GameOfLife(
     private val size: Int, private val pattern: GamePattern
 ) {
-    private var field: Field = Field(size, pattern)
-    private val rules: List<Rule> =
-        listOf(OvercrowdingRule(), ReproductionRule(), UnderpopulationRule())
+    private var grid: Grid = Grid(size, pattern)
+    private val rules: List<Transition> =
+        listOf(OvercrowdingTransition(), ReproductionTransition(), SurvivalTransition(), UnderpopulationTransition())
 
     fun nextGeneration() {
-        val updatedCells = field.getCells().mapIndexed { rowIndex, row ->
-            row.mapIndexed { columnIndex, cell ->
-                val ruleToApply = rules.find {
-                    it.isApplicable(
-                        cell = cell,
-                        neighbors = field.getNeighbors(rowIndex, columnIndex)
-                    )
-                }
-                ruleToApply?.nextState ?: cell
+        val updatedCells = grid.getCells().mapIndexed { rowIndex, row ->
+                row.mapIndexed { columnIndex, cell ->
+                    val rule = rules.find {
+                        it.isApplicable(
+                            cell = cell, neighbors = grid.getNeighbors(rowIndex, columnIndex)
+                        )
+                    }
+                    rule?.nextState ?: cell
+                }.toTypedArray()
             }.toTypedArray()
-        }.toTypedArray()
-        field.setCells(updatedCells)
+        grid.setCells(updatedCells)
     }
 
-    fun getCells() = field.getCells()
+    fun getCells() = grid.getCells()
 
     fun reset() {
-        field = Field(size, pattern)
+        grid = Grid(size, pattern)
     }
 }

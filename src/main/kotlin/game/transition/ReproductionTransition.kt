@@ -1,4 +1,4 @@
-package game.rule
+package game.transition
 
 import game.Cell
 import game.LiveCell
@@ -7,7 +7,7 @@ import game.isDead
 
 private const val REPRODUCTION_NEIGHBORS_COUNT = 3
 
-class ReproductionRule : Rule {
+class ReproductionTransition : Transition {
     override val nextState = LiveCell
 
     override fun isApplicable(cell: Cell, neighbors: List<Cell>) =

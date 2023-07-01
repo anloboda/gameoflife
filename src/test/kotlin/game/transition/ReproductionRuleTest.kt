@@ -1,4 +1,4 @@
-package game.rule
+package game.transition
 
 import game.LiveCell
 import game.DeadCell
@@ -7,12 +7,12 @@ import org.junit.jupiter.api.Test
 
 class ReproductionRuleTest {
 
-    private val rule = ReproductionRule()
+    private val reproductionTransition = ReproductionTransition()
 
     @Test
     fun `should not be applicable for alive cell`() {
         // when
-        val applicable = rule.isApplicable(LiveCell, listOf(LiveCell, LiveCell, LiveCell))
+        val applicable = reproductionTransition.isApplicable(LiveCell, listOf(LiveCell, LiveCell, LiveCell))
 
         // then
         applicable `should be` false
@@ -21,7 +21,7 @@ class ReproductionRuleTest {
     @Test
     fun `should not be applicable for dead cell and less than 3 live neighbors`() {
         // when
-        val applicable = rule.isApplicable(DeadCell, listOf(LiveCell, LiveCell))
+        val applicable = reproductionTransition.isApplicable(DeadCell, listOf(LiveCell, LiveCell))
 
         // then
         applicable `should be` false
@@ -30,7 +30,7 @@ class ReproductionRuleTest {
     @Test
     fun `should not be applicable for dead cell and more than 3 live neighbors`() {
         // when
-        val applicable = rule.isApplicable(DeadCell, listOf(LiveCell, LiveCell, LiveCell, LiveCell))
+        val applicable = reproductionTransition.isApplicable(DeadCell, listOf(LiveCell, LiveCell, LiveCell, LiveCell))
 
         // then
         applicable `should be` false
@@ -39,7 +39,7 @@ class ReproductionRuleTest {
     @Test
     fun `should be applicable for dead cell and 3 live neighbors`() {
         // when
-        val applicable = rule.isApplicable(DeadCell, listOf(LiveCell, LiveCell, LiveCell))
+        val applicable = reproductionTransition.isApplicable(DeadCell, listOf(LiveCell, LiveCell, LiveCell))
 
         // then
         applicable `should be` true
@@ -47,6 +47,6 @@ class ReproductionRuleTest {
 
     @Test
     fun `next state should be live`() {
-        rule.nextState `should be` LiveCell
+        reproductionTransition.nextState `should be` LiveCell
     }
 }

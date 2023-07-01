@@ -1,8 +1,8 @@
-package game.rule
+package game.transition
 
 import game.Cell
 
-interface Rule {
+interface Transition {
     val nextState: Cell
     fun isApplicable(cell: Cell, neighbors: List<Cell>): Boolean
 }

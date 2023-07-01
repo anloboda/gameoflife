@@ -1,4 +1,4 @@
-package game.rule
+package game.transition
 
 import game.DeadCell
 import game.LiveCell
@@ -7,12 +7,12 @@ import org.junit.jupiter.api.Test
 
 class UnderpopulationRuleTest {
 
-    private val rule = UnderpopulationRule()
+    private val transition = UnderpopulationTransition()
 
     @Test
     fun `should not be applicable for live cell`() {
         // when
-        val applicable = rule.isApplicable(DeadCell, listOf(LiveCell))
+        val applicable = transition.isApplicable(DeadCell, listOf(LiveCell))
 
         // then
         applicable `should be` false
@@ -21,7 +21,7 @@ class UnderpopulationRuleTest {
     @Test
     fun `should not be applicable for live cell and two live neighbors`() {
         // when
-        val applicable = rule.isApplicable(LiveCell, listOf(LiveCell, LiveCell))
+        val applicable = transition.isApplicable(LiveCell, listOf(LiveCell, LiveCell))
 
         // then
         applicable `should be` false
@@ -30,7 +30,7 @@ class UnderpopulationRuleTest {
     @Test
     fun `should not be applicable for live cell and more than two live neighbors`() {
         // when
-        val applicable = rule.isApplicable(LiveCell, listOf(LiveCell, LiveCell, LiveCell))
+        val applicable = transition.isApplicable(LiveCell, listOf(LiveCell, LiveCell, LiveCell))
 
         // then
         applicable `should be` false
@@ -39,7 +39,7 @@ class UnderpopulationRuleTest {
     @Test
     fun `should be applicable for live cell and less than two live neighbors`() {
         // when
-        val applicable = rule.isApplicable(LiveCell, listOf(LiveCell))
+        val applicable = transition.isApplicable(LiveCell, listOf(LiveCell))
 
         // then
         applicable `should be` true
@@ -47,6 +47,6 @@ class UnderpopulationRuleTest {
 
     @Test
     fun `nextState should be dead`() {
-        rule.nextState `should be` DeadCell
+        transition.nextState `should be` DeadCell
     }
 }

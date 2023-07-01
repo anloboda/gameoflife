@@ -1,4 +1,4 @@
-package game.rule
+package game.transition
 
 import game.DeadCell
 import game.LiveCell
@@ -8,12 +8,12 @@ import org.junit.jupiter.api.Test
 
 class SurvivalRuleTest {
 
-    private val rule = SurvivalRule()
+    private val survivalTransition = SurvivalTransition()
 
     @Test
     fun `should not be applicable for dead cell`() {
         //when
-        val applicable = rule.isApplicable(DeadCell, listOf(LiveCell, LiveCell))
+        val applicable = survivalTransition.isApplicable(DeadCell, listOf(LiveCell, LiveCell))
 
         //then
         applicable `should be` false
@@ -22,7 +22,7 @@ class SurvivalRuleTest {
     @Test
     fun `should not be applicable for alive cell and less than 2 live cells`() {
         //when
-        val applicable = rule.isApplicable(LiveCell, listOf(LiveCell))
+        val applicable = survivalTransition.isApplicable(LiveCell, listOf(LiveCell))
 
         //then
         applicable `should be` false
@@ -31,7 +31,7 @@ class SurvivalRuleTest {
     @Test
     fun `should not be applicable for alive cell and more than 3 live cells`() {
         //when
-        val applicable = rule.isApplicable(LiveCell, listOf(LiveCell, LiveCell, LiveCell, LiveCell))
+        val applicable = survivalTransition.isApplicable(LiveCell, listOf(LiveCell, LiveCell, LiveCell, LiveCell))
 
         //then
         applicable `should be` false
@@ -40,7 +40,7 @@ class SurvivalRuleTest {
     @Test
     fun `should be applicable for alive cell and 2 live cells`() {
         //when
-        val applicable = rule.isApplicable(LiveCell, listOf(LiveCell, LiveCell))
+        val applicable = survivalTransition.isApplicable(LiveCell, listOf(LiveCell, LiveCell))
 
         //then
         applicable `should be` true
@@ -49,7 +49,7 @@ class SurvivalRuleTest {
     @Test
     fun `should be applicable for alive cell and 3 live cells`() {
         //when
-        val applicable = rule.isApplicable(LiveCell, listOf(LiveCell, LiveCell, LiveCell))
+        val applicable = survivalTransition.isApplicable(LiveCell, listOf(LiveCell, LiveCell, LiveCell))
 
         //then
         applicable `should be` true
@@ -57,6 +57,6 @@ class SurvivalRuleTest {
 
     @Test
     fun `nextState should be live`() {
-        rule.nextState `should be` LiveCell
+        survivalTransition.nextState `should be` LiveCell
     }
 }

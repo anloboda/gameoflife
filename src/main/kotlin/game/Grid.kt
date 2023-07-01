@@ -1,6 +1,6 @@
 package game
 
-class Field(private val size: Int, pattern: GamePattern) {
+class Grid(private val size: Int, pattern: GamePattern) {
 
     private var cells: Array<Array<Cell>> = initCells()
 
