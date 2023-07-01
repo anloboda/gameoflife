@@ -29,10 +29,6 @@ jobs:
         java-version: '17'
         distribution: 'adopt'
 
-    - name: Code style
-      run: |
-        ./gradlew ktlintCheck
-
     - name: Build and test
       run: |
         ./gradlew build
