@@ -6,7 +6,6 @@ import game.isAlive
 
 private const val UNDERPOPULATION_NEIGHBORS_COUNT = 2
 
-// Any live cell with fewer than two live neighbors dies as if caused by underpopulation.
 class UnderpopulationRule : Rule {
     override val nextState = DeadCell
 

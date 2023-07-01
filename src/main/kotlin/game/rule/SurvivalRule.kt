@@ -6,7 +6,6 @@ import game.isAlive
 
 private val survivalNeighborsRange = 2..3
 
-//Any live cell with two or three live neighbors lives on to the next generation.
 class SurvivalRule : Rule {
     override val nextState = LiveCell
 
