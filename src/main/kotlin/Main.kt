@@ -5,7 +5,7 @@ import kotlin.system.exitProcess
 
 fun main() {
     println("Hi, this is Game of Life!")
-    val game = GameOfLife(5, GLIDER)
+    val game = GameOfLife(15, GLIDER)
     println("Glider pattern board:")
     game.print()
     play(game)
@@ -15,12 +15,15 @@ fun play(game: GameOfLife) {
     while (true) {
         printMenu()
         when (readlnOrNull()) {
-            "N" -> {
+            "next" -> {
                 game.nextGeneration()
                 game.print()
             }
 
-            "reset" -> game.reset()
+            "reset" -> {
+                game.reset()
+                game.print()
+            }
             "exit" -> exitProcess(0);
             else -> play(game)
         }
@@ -28,11 +31,12 @@ fun play(game: GameOfLife) {
 }
 
 private fun printMenu() {
+    println()
     println(
         """
-           'N' to generate Next generation;
-           'reset' to reset the game;
-           'exit' to exit;
+           enter 'next' to generate Next generation;
+           enter 'reset' to reset the game;
+           enter 'exit' to exit;
         """.trimIndent()
     )
 }
