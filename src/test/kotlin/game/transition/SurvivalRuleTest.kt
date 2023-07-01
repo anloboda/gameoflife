@@ -19,7 +19,7 @@ class SurvivalRuleTest {
     }
 
     @Test
-    fun `should not be applicable for alive cell and less than 2 live cells`() {
+    fun `should not be applicable for alive cell and less than 2 alive neighbors`() {
         // when
         val applicable = survivalTransition.isApplicable(LiveCell, listOf(LiveCell))
 
@@ -28,7 +28,7 @@ class SurvivalRuleTest {
     }
 
     @Test
-    fun `should not be applicable for alive cell and more than 3 live cells`() {
+    fun `should not be applicable for alive cell and more than 3 alive neighbors`() {
         // when
         val applicable = survivalTransition.isApplicable(LiveCell, listOf(LiveCell, LiveCell, LiveCell, LiveCell))
 
@@ -37,7 +37,7 @@ class SurvivalRuleTest {
     }
 
     @Test
-    fun `should be applicable for alive cell and 2 live cells`() {
+    fun `should be applicable for alive cell and 2 alive neighbors`() {
         // when
         val applicable = survivalTransition.isApplicable(LiveCell, listOf(LiveCell, LiveCell))
 
@@ -46,7 +46,7 @@ class SurvivalRuleTest {
     }
 
     @Test
-    fun `should be applicable for alive cell and 3 live cells`() {
+    fun `should be applicable for alive cell and 3 alive neighbors`() {
         // when
         val applicable = survivalTransition.isApplicable(LiveCell, listOf(LiveCell, LiveCell, LiveCell))
 

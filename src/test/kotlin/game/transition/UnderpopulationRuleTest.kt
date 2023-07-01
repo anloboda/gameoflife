@@ -10,7 +10,7 @@ class UnderpopulationRuleTest {
     private val transition = UnderpopulationTransition()
 
     @Test
-    fun `should not be applicable for live cell`() {
+    fun `should not be applicable for alive cell`() {
         // when
         val applicable = transition.isApplicable(DeadCell, listOf(LiveCell))
 
@@ -19,7 +19,7 @@ class UnderpopulationRuleTest {
     }
 
     @Test
-    fun `should not be applicable for live cell and two live neighbors`() {
+    fun `should not be applicable for alive cell and two alive neighbors`() {
         // when
         val applicable = transition.isApplicable(LiveCell, listOf(LiveCell, LiveCell))
 
@@ -28,7 +28,7 @@ class UnderpopulationRuleTest {
     }
 
     @Test
-    fun `should not be applicable for live cell and more than two live neighbors`() {
+    fun `should not be applicable for alive cell and more than two alive neighbors`() {
         // when
         val applicable = transition.isApplicable(LiveCell, listOf(LiveCell, LiveCell, LiveCell))
 
@@ -37,7 +37,7 @@ class UnderpopulationRuleTest {
     }
 
     @Test
-    fun `should be applicable for live cell and less than two live neighbors`() {
+    fun `should be applicable for alive cell and less than two alive neighbors`() {
         // when
         val applicable = transition.isApplicable(LiveCell, listOf(LiveCell))
 

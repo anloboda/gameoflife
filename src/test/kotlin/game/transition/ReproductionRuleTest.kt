@@ -19,7 +19,7 @@ class ReproductionRuleTest {
     }
 
     @Test
-    fun `should not be applicable for dead cell and less than 3 live neighbors`() {
+    fun `should not be applicable for dead cell and less than 3 alive neighbors`() {
         // when
         val applicable = reproductionTransition.isApplicable(DeadCell, listOf(LiveCell, LiveCell))
 
@@ -28,7 +28,7 @@ class ReproductionRuleTest {
     }
 
     @Test
-    fun `should not be applicable for dead cell and more than 3 live neighbors`() {
+    fun `should not be applicable for dead cell and more than 3 alive neighbors`() {
         // when
         val applicable = reproductionTransition.isApplicable(DeadCell, listOf(LiveCell, LiveCell, LiveCell, LiveCell))
 
@@ -37,7 +37,7 @@ class ReproductionRuleTest {
     }
 
     @Test
-    fun `should be applicable for dead cell and 3 live neighbors`() {
+    fun `should be applicable for dead cell and 3 alive neighbors`() {
         // when
         val applicable = reproductionTransition.isApplicable(DeadCell, listOf(LiveCell, LiveCell, LiveCell))
 
