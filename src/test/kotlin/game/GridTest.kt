@@ -110,7 +110,7 @@ class GridTest {
         val neighbors = grid.getNeighbors(2, 4)
 
         // then
-        neighbors.size `should be equal to` 5
+        neighbors.size `should be equal to` 4
         neighbors `should be equal to` listOf(
             DeadCell, DeadCell, LiveCell, LiveCell, DeadCell
         )
