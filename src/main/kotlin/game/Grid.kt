@@ -47,4 +47,3 @@ class Grid(private val size: Int, pattern: GamePattern) {
         }
     }
 }
-

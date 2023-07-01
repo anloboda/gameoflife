@@ -1,7 +1,7 @@
 package game.transition
 
-import game.LiveCell
 import game.DeadCell
+import game.LiveCell
 import org.amshove.kluent.`should be`
 import org.junit.jupiter.api.Test
 

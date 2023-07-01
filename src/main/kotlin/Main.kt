@@ -24,7 +24,7 @@ fun play(game: GameOfLife) {
                 game.reset()
                 game.print()
             }
-            "exit" -> exitProcess(0);
+            "exit" -> exitProcess(0)
             else -> play(game)
         }
     }
@@ -51,5 +51,3 @@ private fun GameOfLife.print() {
         println()
     }
 }
-
-

@@ -16,7 +16,14 @@ class GridTest {
         // then
         neighbors.size `should be equal to` 8
         neighbors `should be equal to` listOf(
-            DeadCell, DeadCell, DeadCell, DeadCell, DeadCell, DeadCell, DeadCell, LiveCell
+            DeadCell,
+            DeadCell,
+            DeadCell,
+            DeadCell,
+            DeadCell,
+            DeadCell,
+            DeadCell,
+            LiveCell
         )
     }
 
@@ -28,7 +35,9 @@ class GridTest {
         // then
         neighbors.size `should be equal to` 3
         neighbors `should be equal to` listOf(
-            DeadCell, DeadCell, DeadCell
+            DeadCell,
+            DeadCell,
+            DeadCell
         )
     }
 
@@ -40,7 +49,9 @@ class GridTest {
         // then
         neighbors.size `should be equal to` 3
         neighbors `should be equal to` listOf(
-            DeadCell, LiveCell, DeadCell
+            DeadCell,
+            LiveCell,
+            DeadCell
         )
     }
 
@@ -52,7 +63,9 @@ class GridTest {
         // then
         neighbors.size `should be equal to` 3
         neighbors `should be equal to` listOf(
-            DeadCell, DeadCell, DeadCell
+            DeadCell,
+            DeadCell,
+            DeadCell
         )
     }
 
@@ -64,7 +77,9 @@ class GridTest {
         // then
         neighbors.size `should be equal to` 3
         neighbors `should be equal to` listOf(
-            LiveCell, DeadCell, DeadCell
+            LiveCell,
+            DeadCell,
+            DeadCell
         )
     }
 
@@ -76,7 +91,11 @@ class GridTest {
         // then
         neighbors.size `should be equal to` 5
         neighbors `should be equal to` listOf(
-            DeadCell, DeadCell, DeadCell, LiveCell, DeadCell
+            DeadCell,
+            DeadCell,
+            DeadCell,
+            LiveCell,
+            DeadCell
         )
     }
 
@@ -88,7 +107,11 @@ class GridTest {
         // then
         neighbors.size `should be equal to` 5
         neighbors `should be equal to` listOf(
-            LiveCell, LiveCell, LiveCell, DeadCell, DeadCell
+            LiveCell,
+            LiveCell,
+            LiveCell,
+            DeadCell,
+            DeadCell
         )
     }
 
@@ -100,7 +123,11 @@ class GridTest {
         // then
         neighbors.size `should be equal to` 5
         neighbors `should be equal to` listOf(
-            DeadCell, DeadCell, DeadCell, DeadCell, LiveCell
+            DeadCell,
+            DeadCell,
+            DeadCell,
+            DeadCell,
+            LiveCell
         )
     }
 
@@ -112,7 +139,11 @@ class GridTest {
         // then
         neighbors.size `should be equal to` 5
         neighbors `should be equal to` listOf(
-            DeadCell, DeadCell, LiveCell, LiveCell, DeadCell
+            DeadCell,
+            DeadCell,
+            LiveCell,
+            LiveCell,
+            DeadCell
         )
     }
 }
