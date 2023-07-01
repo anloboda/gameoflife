@@ -25,7 +25,10 @@ fun play(game: GameOfLife) {
                 game.print()
             }
             "exit" -> exitProcess(0)
-            else -> play(game)
+            else -> {
+                println("Incorrect command")
+                play(game)
+            }
         }
     }
 }
