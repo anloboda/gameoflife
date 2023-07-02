@@ -4,29 +4,24 @@ import game.transition.OvercrowdingTransition
 import game.transition.ReproductionTransition
 import game.transition.SurvivalTransition
 import game.transition.UnderpopulationTransition
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
-import kotlinx.coroutines.coroutineScope
-import kotlin.system.measureTimeMillis
+import kotlinx.coroutines.runBlocking
 
 class GameOfLife(size: Int, pattern: GamePattern) {
     private var grid: Grid = Grid(size, pattern)
     private val transitions =
         listOf(OvercrowdingTransition(), ReproductionTransition(), SurvivalTransition(), UnderpopulationTransition())
 
-    suspend fun nextGeneration() {
-        val time = measureTimeMillis {
-            val updatedCells =
-                coroutineScope {
-                    grid.getCells()
-                        .mapIndexed { rowIndex, row ->
-                            async { processRow(rowIndex, row) }
-                        }.awaitAll().toTypedArray()
-                }
-
+    fun nextGeneration() {
+        runBlocking {
+            val updatedCells = grid.getCells()
+                .mapIndexed { rowIndex, row ->
+                    async(Dispatchers.Default) { processRow(rowIndex, row) }
+                }.awaitAll().toTypedArray()
             grid.setCells(updatedCells)
         }
-        println(time)
     }
 
     fun getCells() = grid.getCells()
