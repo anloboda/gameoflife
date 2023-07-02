@@ -9,7 +9,7 @@ import kotlin.system.exitProcess
 
 private const val GRID_SIZE = 15
 
-fun main() {
+suspend fun main() {
     println("Hi, this is Game of Life!")
     val pattern = selectGamePattern()
     val game = GameOfLife(GRID_SIZE, pattern)
@@ -49,7 +49,7 @@ private fun GameOfLife.print() {
     }
 }
 
-private fun GameOfLife.play() {
+private suspend fun GameOfLife.play() {
     while (true) {
         printMenu()
         when (readlnOrNull()) {

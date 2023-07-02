@@ -1,6 +1,7 @@
 package game
 
 import game.GamePattern.GILDER
+import kotlinx.coroutines.runBlocking
 import org.amshove.kluent.`should be`
 import org.junit.jupiter.api.Test
 
@@ -19,7 +20,9 @@ class GameOfLifeTest {
         )
 
         // when
-        game.nextGeneration()
+        runBlocking {
+            game.nextGeneration()
+        }
 
         // then
         val firstGeneration = game.getCells()
@@ -34,7 +37,9 @@ class GameOfLifeTest {
         val initGliderCells = game.getCells()
 
         // when
-        repeat(3) { game.nextGeneration() }
+        runBlocking {
+            repeat(3) { game.nextGeneration() }
+        }
         val sellsAfterThreeTransitions = game.getCells()
         game.reset(gridSize, GILDER)
         val sellsAfterReset = game.getCells()
