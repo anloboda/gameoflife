@@ -35,6 +35,7 @@ class GameOfLifeTest {
 
         // when
         repeat(3) { game.nextGeneration() }
+
         val sellsAfterThreeTransitions = game.getCells()
         game.reset(gridSize, GILDER)
         val sellsAfterReset = game.getCells()

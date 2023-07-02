@@ -4,6 +4,10 @@ import game.transition.OvercrowdingTransition
 import game.transition.ReproductionTransition
 import game.transition.SurvivalTransition
 import game.transition.UnderpopulationTransition
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.runBlocking
 
 class GameOfLife(size: Int, pattern: GamePattern) {
     private var grid: Grid = Grid(size, pattern)
@@ -11,11 +15,13 @@ class GameOfLife(size: Int, pattern: GamePattern) {
         listOf(OvercrowdingTransition(), ReproductionTransition(), SurvivalTransition(), UnderpopulationTransition())
 
     fun nextGeneration() {
-        val updatedCells = grid.getCells()
-            .mapIndexed { rowIndex, row ->
-                processRow(rowIndex, row)
-            }.toTypedArray()
-        grid.setCells(updatedCells)
+        runBlocking {
+            val updatedCells = grid.getCells()
+                .mapIndexed { rowIndex, row ->
+                    async(Dispatchers.Default) { processRow(rowIndex, row) }
+                }.awaitAll().toTypedArray()
+            grid.setCells(updatedCells)
+        }
     }
 
     fun getCells() = grid.getCells()

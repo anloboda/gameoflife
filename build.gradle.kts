@@ -12,6 +12,7 @@ repositories {
 }
 
 dependencies {
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.2")
     testImplementation(kotlin("test"))
     testImplementation("org.amshove.kluent:kluent:1.73")
 }
