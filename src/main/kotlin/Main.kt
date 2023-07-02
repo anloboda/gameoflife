@@ -23,15 +23,14 @@ private fun selectGamePattern(): GamePattern {
         """
         Enter one of the game pattern names:
         
-        glider 
+        gilder 
         repeatable
         stable
         disappearing
-        
         """.trimIndent()
     )
     return when (readlnOrNull()) {
-        "glider" -> GILDER
+        "gilder" -> GILDER
         "repeatable" -> REPEATABLE
         "disappearing" -> DISAPPEARING
         "stable" -> STABLE
