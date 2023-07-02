@@ -5,7 +5,7 @@ import game.LiveCell
 import org.amshove.kluent.`should be`
 import org.junit.jupiter.api.Test
 
-class UnderpopulationRuleTest {
+class UnderpopulationTransitionTest {
 
     private val transition = UnderpopulationTransition()
 
@@ -46,7 +46,7 @@ class UnderpopulationRuleTest {
     }
 
     @Test
-    fun `nextState should be dead`() {
+    fun `nextGeneration should be dead`() {
         transition.nextGeneration `should be` DeadCell
     }
 }

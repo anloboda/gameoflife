@@ -46,7 +46,7 @@ class OvercrowdingTransitionTest {
     }
 
     @Test
-    fun `nextState should be dead`() {
+    fun `nextGeneration should be dead`() {
         overcrowdingTransition.nextGeneration `should be` DeadCell
     }
 }

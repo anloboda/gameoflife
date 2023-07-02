@@ -5,7 +5,7 @@ import game.LiveCell
 import org.amshove.kluent.`should be`
 import org.junit.jupiter.api.Test
 
-class ReproductionRuleTest {
+class ReproductionTransioionTest {
 
     private val reproductionTransition = ReproductionTransition()
 
@@ -46,7 +46,7 @@ class ReproductionRuleTest {
     }
 
     @Test
-    fun `next state should be live`() {
+    fun `nextGeneration should be live`() {
         reproductionTransition.nextGeneration `should be` LiveCell
     }
 }
