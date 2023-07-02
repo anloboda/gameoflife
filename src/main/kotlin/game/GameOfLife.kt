@@ -5,10 +5,7 @@ import game.transition.ReproductionTransition
 import game.transition.SurvivalTransition
 import game.transition.UnderpopulationTransition
 
-class GameOfLife(
-    private val size: Int,
-    private val pattern: GamePattern
-) {
+class GameOfLife(size: Int, pattern: GamePattern) {
     private var grid: Grid = Grid(size, pattern)
     private val transitions =
         listOf(OvercrowdingTransition(), ReproductionTransition(), SurvivalTransition(), UnderpopulationTransition())
@@ -23,7 +20,7 @@ class GameOfLife(
 
     fun getCells() = grid.getCells()
 
-    fun reset(pattern: GamePattern) {
+    fun reset(size: Int, pattern: GamePattern) {
         grid = Grid(size, pattern)
     }
 
