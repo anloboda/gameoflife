@@ -5,11 +5,12 @@ import game.GamePattern.GILDER
 import game.GamePattern.REPEATABLE
 import game.GamePattern.STABLE
 import game.isAlive
+import kotlinx.coroutines.runBlocking
 import kotlin.system.exitProcess
 
 private const val GRID_SIZE = 15
 
-fun main() {
+fun main() = runBlocking {
     println("Hi, this is Game of Life!")
     val pattern = selectGamePattern()
     val game = GameOfLife(GRID_SIZE, pattern)
@@ -49,7 +50,7 @@ private fun GameOfLife.print() {
     }
 }
 
-private fun GameOfLife.play() {
+private suspend fun GameOfLife.play() {
     while (true) {
         printMenu()
         when (readlnOrNull()) {

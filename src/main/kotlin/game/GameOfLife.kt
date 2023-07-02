@@ -7,18 +7,18 @@ import game.transition.UnderpopulationTransition
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
-import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
 
 class GameOfLife(size: Int, pattern: GamePattern) {
     private var grid: Grid = Grid(size, pattern)
     private val transitions =
         listOf(OvercrowdingTransition, ReproductionTransition, SurvivalTransition, UnderpopulationTransition)
 
-    fun nextGeneration() {
-        runBlocking {
+    suspend fun nextGeneration() {
+        withContext(Dispatchers.Default) {
             val updatedCells = grid.getCells()
                 .mapIndexed { rowIndex, row ->
-                    async(Dispatchers.Default) { processRow(rowIndex, row) }
+                    async { processRow(rowIndex, row) }
                 }.awaitAll().toTypedArray()
             grid.setCells(updatedCells)
         }

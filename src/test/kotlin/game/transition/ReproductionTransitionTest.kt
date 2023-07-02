@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test
 
 class ReproductionTransitionTest {
 
-
     @Test
     fun `should not be applicable for alive cell`() {
         // when
