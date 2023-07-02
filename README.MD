@@ -35,7 +35,7 @@ To run the game
 
 Another option to run the game
 ```
-java -jar build/libs/gameoflife.jar`
+java -jar build/libs/gameoflife.jar
 ```
 
 ### Linter
