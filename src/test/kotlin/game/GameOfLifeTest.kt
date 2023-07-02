@@ -29,13 +29,14 @@ class GameOfLifeTest {
     @Test
     fun `should reset the game to the initial state`() {
         // given
-        val game = GameOfLife(5, GILDER)
+        val gridSize = 5
+        val game = GameOfLife(gridSize, GILDER)
         val initGliderCells = game.getCells()
 
         // when
         repeat(3) { game.nextGeneration() }
         val sellsAfterThreeTransitions = game.getCells()
-        game.reset(GILDER)
+        game.reset(gridSize, GILDER)
         val sellsAfterReset = game.getCells()
 
         // then
