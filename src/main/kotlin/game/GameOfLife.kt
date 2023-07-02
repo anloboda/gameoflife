@@ -12,7 +12,7 @@ import kotlinx.coroutines.runBlocking
 class GameOfLife(size: Int, pattern: GamePattern) {
     private var grid: Grid = Grid(size, pattern)
     private val transitions =
-        listOf(OvercrowdingTransition(), ReproductionTransition(), SurvivalTransition(), UnderpopulationTransition())
+        listOf(OvercrowdingTransition, ReproductionTransition, SurvivalTransition, UnderpopulationTransition)
 
     fun nextGeneration() {
         runBlocking {

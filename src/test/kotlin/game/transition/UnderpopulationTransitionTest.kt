@@ -7,12 +7,10 @@ import org.junit.jupiter.api.Test
 
 class UnderpopulationTransitionTest {
 
-    private val transition = UnderpopulationTransition()
-
     @Test
     fun `should not be applicable for alive cell`() {
         // when
-        val applicable = transition.isApplicable(DeadCell, listOf(LiveCell))
+        val applicable = UnderpopulationTransition.isApplicable(DeadCell, listOf(LiveCell))
 
         // then
         applicable `should be` false
@@ -21,7 +19,7 @@ class UnderpopulationTransitionTest {
     @Test
     fun `should not be applicable for alive cell and two alive neighbors`() {
         // when
-        val applicable = transition.isApplicable(LiveCell, listOf(LiveCell, LiveCell))
+        val applicable = UnderpopulationTransition.isApplicable(LiveCell, listOf(LiveCell, LiveCell))
 
         // then
         applicable `should be` false
@@ -30,7 +28,7 @@ class UnderpopulationTransitionTest {
     @Test
     fun `should not be applicable for alive cell and more than two alive neighbors`() {
         // when
-        val applicable = transition.isApplicable(LiveCell, listOf(LiveCell, LiveCell, LiveCell))
+        val applicable = UnderpopulationTransition.isApplicable(LiveCell, listOf(LiveCell, LiveCell, LiveCell))
 
         // then
         applicable `should be` false
@@ -39,7 +37,7 @@ class UnderpopulationTransitionTest {
     @Test
     fun `should be applicable for alive cell and less than two alive neighbors`() {
         // when
-        val applicable = transition.isApplicable(LiveCell, listOf(LiveCell))
+        val applicable = UnderpopulationTransition.isApplicable(LiveCell, listOf(LiveCell))
 
         // then
         applicable `should be` true
@@ -47,6 +45,6 @@ class UnderpopulationTransitionTest {
 
     @Test
     fun `nextGeneration should be dead`() {
-        transition.nextGeneration `should be` DeadCell
+        UnderpopulationTransition.nextGeneration `should be` DeadCell
     }
 }

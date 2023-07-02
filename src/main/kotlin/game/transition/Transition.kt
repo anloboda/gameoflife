@@ -2,7 +2,7 @@ package game.transition
 
 import game.Cell
 
-interface Transition {
+sealed interface Transition {
     val nextGeneration: Cell
     fun isApplicable(cell: Cell, neighbors: List<Cell>): Boolean
 }
