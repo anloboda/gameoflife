@@ -7,13 +7,13 @@ import game.GamePattern.STABLE
 import game.isAlive
 import kotlin.system.exitProcess
 
-private const val GRID_SIZE = 10000
+private const val GRID_SIZE = 15
 
 fun main() {
     println("Hi, this is Game of Life!")
     val pattern = selectGamePattern()
     val game = GameOfLife(GRID_SIZE, pattern)
-    //game.print()
+    game.print()
     game.play()
 }
 
@@ -55,13 +55,13 @@ private fun GameOfLife.play() {
         when (readlnOrNull()) {
             "next" -> {
                 nextGeneration()
-                //print()
+                print()
             }
 
             "reset" -> {
                 val pattern = selectGamePattern()
                 reset(GRID_SIZE, pattern)
-                //print()
+                print()
             }
 
             "exit" -> exitProcess(0)
