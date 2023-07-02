@@ -47,6 +47,6 @@ class ReproductionRuleTest {
 
     @Test
     fun `next state should be live`() {
-        reproductionTransition.nextState `should be` LiveCell
+        reproductionTransition.nextGeneration `should be` LiveCell
     }
 }

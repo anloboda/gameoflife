@@ -56,6 +56,6 @@ class SurvivalRuleTest {
 
     @Test
     fun `nextState should be live`() {
-        survivalTransition.nextState `should be` LiveCell
+        survivalTransition.nextGeneration `should be` LiveCell
     }
 }

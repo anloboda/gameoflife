@@ -18,7 +18,7 @@ fun main() {
 private fun selectGamePattern(): GamePattern {
     println(
         """
-        Enter the name of the game pattern:
+        Enter one of the game pattern names:
         
         glider 
         repeatable

@@ -47,6 +47,6 @@ class UnderpopulationRuleTest {
 
     @Test
     fun `nextState should be dead`() {
-        transition.nextState `should be` DeadCell
+        transition.nextGeneration `should be` DeadCell
     }
 }

@@ -3,6 +3,6 @@ package game.transition
 import game.Cell
 
 interface Transition {
-    val nextState: Cell
+    val nextGeneration: Cell
     fun isApplicable(cell: Cell, neighbors: List<Cell>): Boolean
 }

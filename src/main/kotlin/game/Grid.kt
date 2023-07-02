@@ -2,13 +2,13 @@ package game
 
 class Grid(private val size: Int, pattern: GamePattern) {
 
-    private var cells: Array<Array<Cell>> = initCells()
+    private var cells: Array<Array<Cell>> = initializeCells()
 
     init {
         setPattern(pattern)
     }
 
-    fun getCells(): Array<Array<Cell>> = cells.copyOf()
+    fun getCells() = cells.copyOf()
 
     fun setCells(cells: Array<Array<Cell>>) {
         this.cells = cells
@@ -34,7 +34,7 @@ class Grid(private val size: Int, pattern: GamePattern) {
     private fun isCellInFieldBounds(neighborRow: Int, neighborColumn: Int) =
         neighborRow in 0 until size && neighborColumn in 0 until size
 
-    private fun initCells(): Array<Array<Cell>> = Array(size) { Array(size) { DeadCell } }
+    private fun initializeCells(): Array<Array<Cell>> = Array(size) { Array(size) { DeadCell } }
 
     private fun setPattern(pattern: GamePattern) {
         val startRow = (size - pattern.configuration.size) / 2

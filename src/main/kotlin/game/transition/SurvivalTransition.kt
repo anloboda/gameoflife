@@ -7,7 +7,7 @@ import game.isAlive
 private val survivalNeighborsRange = 2..3
 
 class SurvivalTransition : Transition {
-    override val nextState = LiveCell
+    override val nextGeneration = LiveCell
 
     override fun isApplicable(cell: Cell, neighbors: List<Cell>) =
         cell.isAlive() && neighbors.count(Cell::isAlive) in survivalNeighborsRange
